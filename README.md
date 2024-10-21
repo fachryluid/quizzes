@@ -8,6 +8,7 @@ Selamat datang di **Quizzes**! Aplikasi ini memungkinkan Anda untuk membuat soal
 - **Tingkat Kesulitan:** Sesuaikan tingkat kesulitan soal sesuai dengan jenjang pendidikan (SD/SMP/SMA).
 - **Materi:** Tentukan materi spesifik yang ingin diujikan dalam kuis.
 - **Format Pertanyaan:** Format pilihan ganda, isian singkat dan sebagainya.
+- **Buat Soal:** Generate soal dengan ChatGPT API.
 - **Soal Unik:** Secara otomatis menghasilkan soal yang berbeda untuk setiap siswa.
 - **Unduh:** Unduh soal, pembahasan dan kunci jawaban.
 
