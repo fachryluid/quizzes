@@ -1,36 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Button } from "flowbite-react";
+import heroImage from "./assets/images/hero.png";
+import Navbar from "./components/Navbar";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <Navbar />
+      <div className="flex px-5 sm:px-20 pt-20">
+        <div className="lg:basis-1/2 space-y-7">
+          <div className="space-y-5">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900">Buat Soal Unik untuk Setiap Siswa</h2>
+            <p className="text-normal sm:text-lg text-gray-900">Quizzes membantu guru membuat soal yang dapat disesuaikan untuk berbagai mata pelajaran dan tingkat kesulitan. Hasilkan soal berbeda untuk setiap siswa dalam hitungan detik.</p>
+          </div>
+          <Button color="dark" size="lg" className="font-medium">Buat Soal Sekarang</Button>
+        </div>
+        <div className="basis-1/2 hidden lg:flex justify-center">
+          <img src={heroImage} alt="Hero Image" />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <h2>Quizzes</h2>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
-
-export default App
