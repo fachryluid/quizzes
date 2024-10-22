@@ -30,22 +30,22 @@ export default function Layout() {
   return (
     <>
       <div className="flex gap-5 px-5 sm:px-20 pt-10">
-        <div className="basis-1/5 flex flex-col h-fit border rounded-xl overflow-hidden">
+        <div className="basis-14 lg:basis-1/5 flex flex-col h-fit border rounded-xl overflow-hidden">
           {links.map((link, idx) =>
             <NavLink
               key={idx}
               to={link.href}
               end
               className={({ isActive }) =>
-                `${idx > 0 ? 'border-t' : ''} ${isActive ? 'bg-gray-100' : 'bg-white'} flex items-center space-x-3 py-2 px-4`
+                `${idx > 0 ? 'border-t' : ''} ${isActive ? 'bg-gray-100' : 'bg-white'} flex items-center space-x-3 py-3 lg:px-4 justify-center lg:justify-start`
               }
             >
-              {link.icon}
-              <span>{link.label}</span>
+              <span>{link.icon}</span>
+              <span className="hidden lg:block">{link.label}</span>
             </NavLink>
           )}
         </div>
-        <Card className="basis-4/5 shadow-none">
+        <Card className="basis-full h-fit shadow-none lg:basis-4/5">
           <Outlet />
         </Card>
       </div>
