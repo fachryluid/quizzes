@@ -1,23 +1,25 @@
-import { Button } from "flowbite-react";
-import heroImage from "./assets/images/hero.png";
+import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Dashboard from "./pages/dashboard/Dashboard";
+import DashboardLayout from "./pages/dashboard/Layout";
+import Quiz from "./pages/dashboard/Quiz";
+import Saved from "./pages/dashboard/Saved";
+import Settings from "./pages/dashboard/Settings";
 
 export default function App() {
   return (
     <>
       <Navbar />
-      <div className="flex px-5 sm:px-20 pt-20">
-        <div className="lg:basis-1/2 space-y-7">
-          <div className="space-y-5">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900">Buat Soal Unik untuk Setiap Siswa</h2>
-            <p className="text-normal sm:text-lg text-gray-900">Quizzes membantu guru membuat soal yang dapat disesuaikan untuk berbagai mata pelajaran dan tingkat kesulitan. Hasilkan soal berbeda untuk setiap siswa dalam hitungan detik.</p>
-          </div>
-          <Button color="dark" size="lg" className="font-medium">Buat Soal Sekarang</Button>
-        </div>
-        <div className="basis-1/2 hidden lg:flex justify-center">
-          <img src={heroImage} alt="Hero Image" />
-        </div>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard/*" element={<DashboardLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="quiz" element={<Quiz />} />
+          <Route path="saved" element={<Saved />} />
+          <Route path="settings" element={<Settings />} />
+        </Route>
+      </Routes>
     </>
   );
 }
