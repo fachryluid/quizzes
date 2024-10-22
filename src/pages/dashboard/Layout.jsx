@@ -29,19 +29,19 @@ const links = [
 export default function Layout() {
   return (
     <>
-      <div className="flex gap-5 px-5 sm:px-20 pt-10">
-        <div className="basis-14 lg:basis-1/5 flex flex-col h-fit border rounded-xl overflow-hidden">
+      <div className="flex flex-col lg:flex-row gap-5 px-5 sm:px-20 py-10">
+        <div className="basis-full lg:basis-1/5 flex flex-col h-fit border rounded-xl overflow-hidden">
           {links.map((link, idx) =>
             <NavLink
               key={idx}
               to={link.href}
               end
               className={({ isActive }) =>
-                `${idx > 0 ? 'border-t' : ''} ${isActive ? 'bg-gray-100' : 'bg-white'} flex items-center space-x-3 py-3 lg:px-4 justify-center lg:justify-start`
+                `${idx > 0 ? 'border-t' : ''} ${isActive ? 'bg-gray-100' : 'bg-white'} flex items-center justify-start space-x-3 py-3 px-4`
               }
             >
               <span>{link.icon}</span>
-              <span className="hidden lg:block">{link.label}</span>
+              <span>{link.label}</span>
             </NavLink>
           )}
         </div>
