@@ -1,9 +1,11 @@
+import SettingForm from "@/features/settings/SettingForm";
+import { Card } from "flowbite-react";
+
 export default function Settings() {
   return (
-    <>
+    <Card className="shadow-none">
       <h5 className="text-2xl font-bold">Pengaturan</h5>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque sit, voluptates rem maiores odio, distinctio quo, beatae porro aliquid molestiae at est deserunt dicta eos hic! Porro dolorum rem voluptatem!</p>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque sit, voluptates rem maiores odio, distinctio quo, beatae porro aliquid molestiae at est deserunt dicta eos hic! Porro dolorum rem voluptatem!</p>
-    </>
+      <SettingForm />
+    </Card>
   );
 };

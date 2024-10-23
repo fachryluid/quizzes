@@ -1,0 +1,164 @@
+{
+  "SD": {
+    "Matematika": [
+      "Penjumlahan dan Pengurangan",
+      "Perkalian dan Pembagian",
+      "Bilangan Bulat",
+      "Geometri Dasar"
+    ],
+    "Bahasa Indonesia": [
+      "Membaca dan Menulis",
+      "Tata Bahasa",
+      "Cerita Rakyat",
+      "Puisi"
+    ],
+    "Ilmu Pengetahuan Alam": [
+      "Pengantar Sains",
+      "Siklus Hidup",
+      "Hewan dan Tumbuhan",
+      "Lingkungan Hidup"
+    ],
+    "Ilmu Pengetahuan Sosial": [
+      "Sejarah Indonesia",
+      "Geografi Dasar",
+      "Budaya dan Tradisi",
+      "Perkembangan Teknologi"
+    ],
+    "Pendidikan Pancasila dan Kewarganegaraan": [
+      "Nilai-Nilai Pancasila",
+      "Hak dan Kewajiban Warga Negara",
+      "Pengantar Hukum",
+      "Demokrasi"
+    ],
+    "Seni Budaya": [
+      "Seni Rupa",
+      "Seni Musik",
+      "Seni Tari",
+      "Seni Teater"
+    ],
+    "Olahraga": [
+      "Gerakan Dasar",
+      "Permainan Tradisional",
+      "Kesehatan dan Kebugaran",
+      "Kompetisi"
+    ]
+  },
+  "SMP": {
+    "Matematika": [
+      "Aljabar",
+      "Geometri",
+      "Statistika",
+      "Peluang"
+    ],
+    "Bahasa Indonesia": [
+      "Sastra",
+      "Keterampilan Berbicara",
+      "Keterampilan Membaca",
+      "Keterampilan Menulis"
+    ],
+    "Bahasa Inggris": [
+      "Grammar",
+      "Speaking",
+      "Listening",
+      "Reading Comprehension"
+    ],
+    "Ilmu Pengetahuan Alam": [
+      "Fisika Dasar",
+      "Kimia Dasar",
+      "Biologi Dasar",
+      "Ekosistem"
+    ],
+    "Ilmu Pengetahuan Sosial": [
+      "Geografi",
+      "Sejarah Dunia",
+      "Ekonomi",
+      "Politik"
+    ],
+    "Pendidikan Agama": [
+      "Etika",
+      "Tafsir",
+      "Sejarah Agama",
+      "Praktik Keagamaan"
+    ],
+    "Seni Budaya": [
+      "Seni Rupa",
+      "Musik",
+      "Seni Pertunjukan",
+      "Desain"
+    ],
+    "Olahraga": [
+      "Bola Basket",
+      "Sepak Bola",
+      "Renang",
+      "Pendidikan Jasmani"
+    ],
+    "Teknologi dan Informasi": [
+      "Pengantar Komputer",
+      "Pemrograman Dasar",
+      "Desain Grafis",
+      "Internet dan Media Sosial"
+    ]
+  },
+  "SMA": {
+    "Matematika": [
+      "Analisis",
+      "Kalkulus",
+      "Statistika Lanjutan",
+      "Matematika Diskrit"
+    ],
+    "Fisika": [
+      "Mekanika",
+      "Termodinamika",
+      "Gelombang dan Optika",
+      "Fisika Modern"
+    ],
+    "Kimia": [
+      "Kimia Dasar",
+      "Kimia Organik",
+      "Kimia Anorganik",
+      "Kimia Fisika"
+    ],
+    "Biologi": [
+      "Biologi Sel",
+      "Genetika",
+      "Ekologi",
+      "Evolusi"
+    ],
+    "Ekonomi": [
+      "Ekonomi Mikro",
+      "Ekonomi Makro",
+      "Teori Ekonomi",
+      "Kebijakan Ekonomi"
+    ],
+    "Sosiologi": [
+      "Teori Sosiologi",
+      "Budaya dan Masyarakat",
+      "Perubahan Sosial",
+      "Sosiologi Keluarga"
+    ],
+    "Bahasa Indonesia": [
+      "Karya Sastra",
+      "Keterampilan Berbahasa",
+      "Analisis Teks",
+      "Seni Berbicara"
+    ],
+    "Bahasa Inggris": [
+      "Grammar Lanjutan",
+      "Keterampilan Berbicara",
+      "Listening",
+      "Analisis Teks"
+    ],
+    "Pendidikan Agama": [
+      "Etika dan Moral",
+      "Praktik Keagamaan",
+      "Sejarah Agama",
+      "Diskusi Agama"
+    ],
+    "Olahraga": [
+      "Futsal",
+      "Bola Voli",
+      "Lari",
+      "Renang Lanjutan"
+    ]
+  }
+}

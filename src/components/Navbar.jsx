@@ -1,15 +1,35 @@
+import { getUser } from "@/services/userService";
 import { Button } from "flowbite-react";
+import { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
+  const user = getUser();
+
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    // Cleanup function to reset scroll on component unmount or when isOpen changes
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
 
   return (
     <>
       <nav className="w-full h-16 flex items-center justify-between px-5 sm:px-20 shadow relative">
-        <div>
+        <NavLink to="/">
           <h1 className="text-2xl font-medium">Quizzes</h1>
-        </div>
+        </NavLink>
 
         {/* Hamburger Icon */}
         <button
@@ -64,9 +84,15 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <Button color="dark" size="sm" className="w-full sm:w-auto font-medium">
-              Login
-            </Button>
+            {user ?
+              <Button onClick={() => navigate('/dashboard')} color="dark" size="sm" className="w-full sm:w-auto font-medium">
+                Dasbor
+              </Button>
+              :
+              <Button onClick={() => navigate('/login')} color="dark" size="sm" className="w-full sm:w-auto font-medium">
+                Login
+              </Button>
+            }
           </li>
         </ul>
       </nav>

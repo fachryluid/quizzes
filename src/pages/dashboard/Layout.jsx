@@ -1,5 +1,4 @@
-import { Card } from "flowbite-react";
-import { HiBookmark, HiPlus } from "react-icons/hi";
+import { HiArchive, HiBookmark, HiDocumentText } from "react-icons/hi";
 import { HiCog6Tooth, HiSquares2X2 } from "react-icons/hi2";
 import { NavLink, Outlet } from "react-router-dom";
 
@@ -11,8 +10,13 @@ const links = [
   },
   {
     label: 'Buat Soal',
+    href: '/dashboard/generate',
+    icon: <HiDocumentText />
+  },
+  {
+    label: 'Riwayat',
     href: '/dashboard/quiz',
-    icon: <HiPlus />
+    icon: <HiArchive />
   },
   {
     label: 'Disimpan',
@@ -30,7 +34,7 @@ export default function Layout() {
   return (
     <>
       <div className="flex flex-col lg:flex-row gap-5 px-5 sm:px-20 py-10">
-        <div className="basis-full lg:basis-1/5 flex flex-col h-fit border rounded-xl overflow-hidden">
+        <div className="basis-full lg:basis-1/5 flex flex-col h-fit border rounded-xl overflow-hidden bg-white">
           {links.map((link, idx) =>
             <NavLink
               key={idx}
@@ -45,9 +49,9 @@ export default function Layout() {
             </NavLink>
           )}
         </div>
-        <Card className="basis-full h-fit shadow-none lg:basis-4/5">
+        <div className="basis-full h-fit lg:basis-4/5">
           <Outlet />
-        </Card>
+        </div>
       </div>
     </>
   );
