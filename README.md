@@ -1,6 +1,6 @@
 # Quizzes
 
-Selamat datang di **Quizzes**! Aplikasi ini memungkinkan Anda untuk membuat soal yang dapat disesuaikan, baik dari segi bentuk soal maupun materi, untuk berbagai mata pelajaran.
+**Quizzes** adalah aplikasi pembuat soal otomatis yang dirancang untuk membantu guru menghasilkan soal yang unik bagi setiap siswa. Soal dibuat dengan bantuan teknologi _LLM (Large Language Model)_, yaitu [Gemini AI](https://gemini.google/overview). Ke depannya, kami berharap dapat menggunakan model AI yang lebih spesifik dan canggih untuk menghasilkan soal yang semakin berkualitas. Melalui proyek ini, kami ingin mendukung proses pembelajaran yang lebih efisien, personal, dan relevan dengan kebutuhan siswa.
 
 ## Fitur Utama
 
