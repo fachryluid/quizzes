@@ -1,9 +1,9 @@
 import Alert from "@/components/Alert";
 import FormInput from "@/components/forms/FormInput";
-import Loader from "@/components/Loader";
+import LoadingScreen from "@/components/LoadingScreen";
 import { getSettings, updateSettings } from "@/services/settingService";
 import { updateSettingsValidationSchema } from "@/utils/validation";
-import { Button, Card } from "flowbite-react";
+import { Button } from "flowbite-react";
 import { Form, Formik } from "formik";
 import { useState } from "react";
 import { HiOutlineSave } from "react-icons/hi";
@@ -45,15 +45,7 @@ export default function SettingForm() {
     >
       {({ isSubmitting }) => (
         <>
-          {isSubmitting &&
-            <div className="fixed z-20 w-full h-screen top-0 left-0 bg-black bg-opacity-50 flex justify-center items-center">
-              <Card className="w-80 flex flex-col items-center justify-start py-5">
-                <div className="flex justify-center">
-                  <Loader />
-                </div>
-              </Card>
-            </div>
-          }
+          {isSubmitting && <LoadingScreen />}
           <Alert color={alert?.color} message={alert?.message} onDismiss={() => setAlert(null)} />
           <Form className="space-y-3">
             <div>
