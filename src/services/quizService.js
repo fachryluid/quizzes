@@ -134,10 +134,60 @@ export function getQuizzes() {
   return parsedQuizzes.sort((a, b) => b.id - a.id);
 }
 
+export function getSavedQuizzes() {
+  const quizzes = localStorage.getItem('quizzes');
+  if (!quizzes) return [];
+
+  const parsedQuizzes = JSON.parse(quizzes);
+  if (!Array.isArray(parsedQuizzes)) return [];
+
+  const savedOnly = parsedQuizzes.filter(q => q.isSaved);
+
+  return savedOnly.sort((a, b) => b.id - a.id); // Sort by 'id' descending (assuming 'id' is timestamp)
+}
+
 export function getQuiz(id) {
   const quizzes = localStorage.getItem('quizzes');
   const parsedQuizzes = JSON.parse(quizzes);
   const quiz = parsedQuizzes.find(quiz => quiz.id == id);
 
   return quiz;
+}
+
+export function saveQuiz(id) {
+  try {
+    const quizzes = localStorage.getItem('quizzes');
+    if (!quizzes) return;
+
+    const parsedQuizzes = JSON.parse(quizzes);
+    if (!Array.isArray(parsedQuizzes)) return;
+
+    const updatedQuizzes = parsedQuizzes.map(quiz => {
+      if (quiz.id === id) {
+        return { ...quiz, isSaved: true };
+      }
+      return quiz;
+    });
+
+    localStorage.setItem('quizzes', JSON.stringify(updatedQuizzes));
+  } catch (error) {
+    throw new Error('Gagal menyimpan soal. Coba lagi!');
+  }
+}
+
+export function unSaveQuiz(id) {
+  try {
+    const quizzes = JSON.parse(localStorage.getItem("quizzes") || "[]");
+
+    const updated = quizzes.map(q => {
+      if (q.id === id) {
+        return { ...q, isSaved: false };
+      }
+      return q;
+    });
+
+    localStorage.setItem("quizzes", JSON.stringify(updated));
+  } catch (error) {
+    throw new Error('Gagal. Coba lagi!');
+  }
 }

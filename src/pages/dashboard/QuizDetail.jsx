@@ -1,18 +1,21 @@
 import Alert from "@/components/Alert";
 import Breadcrumb from "@/components/Breadcrumb";
-import { getQuiz } from "@/services/quizService";
+import { getQuiz, saveQuiz, unSaveQuiz } from "@/services/quizService";
 import { Card } from "flowbite-react";
 import { useEffect, useState } from "react";
-import { HiOutlineBookmark } from "react-icons/hi";
+import { HiOutlineBookmark, HiOutlineBookmarkSlash } from "react-icons/hi2";
 import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
 
 export default function QuizDetail() {
   const params = useParams();
   const location = useLocation();
   const navigate = useNavigate();
-  const [alert, setAlert] = useState(null);
 
   const data = getQuiz(params.id);
+
+  const [alert, setAlert] = useState(null);
+  const [isSaved, setIsSaved] = useState(data.isSaved);
+
 
   useEffect(() => {
     if (location.state?.alert) {
@@ -20,6 +23,15 @@ export default function QuizDetail() {
       navigate(location.pathname, { replace: true });
     }
   }, [location.state]);
+
+  const handleToggleSaveQuiz = () => {
+    if (isSaved) {
+      unSaveQuiz(data.id);
+    } else {
+      saveQuiz(data.id);
+    }
+    setIsSaved(!isSaved); // trigger re-render
+  };
 
   return (
     <Card className="shadow-none">
@@ -33,7 +45,23 @@ export default function QuizDetail() {
           ]} />
         </div>
         <span>
-          <HiOutlineBookmark size={24} className="text-gray-700" />
+          <span>
+            <span>
+              {isSaved ? (
+                <HiOutlineBookmark
+                  size={24}
+                  className="text-gray-600 cursor-pointer"
+                  onClick={handleToggleSaveQuiz}
+                />
+              ) : (
+                <HiOutlineBookmarkSlash
+                  size={24}
+                  className="text-gray-500 cursor-pointer"
+                  onClick={handleToggleSaveQuiz}
+                />
+              )}
+            </span>
+          </span>
         </span>
       </div>
       <Alert color={alert?.color} message={alert?.message} onDismiss={() => setAlert(null)} />

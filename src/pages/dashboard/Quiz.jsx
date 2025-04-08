@@ -23,14 +23,16 @@ export default function Quiz() {
       <div>
         <Table striped>
           <Table.Head>
+            <Table.HeadCell>Jenjang</Table.HeadCell>
+            <Table.HeadCell>Materi</Table.HeadCell>
             <Table.HeadCell>Timestamp</Table.HeadCell>
-            <Table.HeadCell>
-              <span className="sr-only">Detail</span>
-            </Table.HeadCell>
+            <Table.HeadCell>Aksi</Table.HeadCell>
           </Table.Head>
           <Table.Body className="divide-y">
             {data ? data.map((quiz, idx) => (
               <Table.Row key={idx} className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                <Table.Cell>{quiz.quiz.level}</Table.Cell>
+                <Table.Cell>{quiz.quiz.topics.join(', ')}</Table.Cell>
                 <Table.Cell>
                   {new Date(quiz.id).toLocaleString('id-ID', {
                     year: 'numeric',
@@ -50,7 +52,7 @@ export default function Quiz() {
             ))
               :
               <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                <Table.Cell colSpan={2}>Data tidak ditemukan</Table.Cell>
+                <Table.Cell colSpan={4} className="text-center">Data tidak ditemukan</Table.Cell>
               </Table.Row>
             }
           </Table.Body>
