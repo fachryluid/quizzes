@@ -5,11 +5,11 @@ export function getSettings() {
   return JSON.parse(localStorage.getItem('settings'));
 }
 
-export async function updateSettings(settings) {
+export async function updateSettings({ values, onSuccess }) {
   try {
-    const apiKey = settings.apiKey;
+    const apiKey = values.apiKey;
 
-    await axios.post(`${GEMINI_API_URL}?key=${apiKey}`, {
+    const { data } = await axios.post(`${GEMINI_API_URL}?key=${apiKey}`, {
       contents: [{
         parts: [{ text: 'This is just test prompt. Replay with "Ay ay captain!".' }]
       }]
@@ -19,7 +19,12 @@ export async function updateSettings(settings) {
       }
     });
 
-    localStorage.setItem('settings', JSON.stringify(settings));
+    localStorage.setItem('settings', JSON.stringify({
+      apiKey,
+      modelVersion: data.modelVersion
+    }));
+
+    onSuccess()
   } catch (error) {
     throw new Error(error.response?.data?.error?.message || 'Failed to update settings.');
   }

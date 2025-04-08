@@ -9,32 +9,39 @@ import { useState } from "react";
 import { HiOutlineSave } from "react-icons/hi";
 
 export default function SettingForm() {
-  const settings = getSettings();
+  const [setting, setSetting] = useState(getSettings());
   const [alert, setAlert] = useState(null);
+
+  const handleUpdateSettings = async (values, setSubmitting) => {
+    try {
+      await updateSettings({
+        values,
+        onSuccess: () => setSetting(getSettings())
+      });
+
+      setAlert({
+        color: 'success',
+        message: 'Pengaturan berhasil disimpan!',
+      });
+    } catch (error) {
+      setAlert({
+        color: 'failure',
+        message: error.message || 'Terjadi kesalahan. Coba lagi!',
+      });
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <Formik
+      enableReinitialize
       initialValues={{
-        apiKey: settings?.apiKey || ''
+        apiKey: setting?.apiKey || '',
+        modelVersion: setting?.modelVersion || '',
       }}
       validationSchema={updateSettingsValidationSchema}
-      onSubmit={async (values, { setSubmitting }) => {
-        try {
-          await updateSettings(values);
-
-          setAlert({
-            color: 'success',
-            message: 'Pengaturan berhasil disimpan!'
-          })
-        } catch (error) {
-          setAlert({
-            color: 'failure',
-            message: error.message || 'Terjadi kesalahan. Coba lagi!'
-          })
-        } finally {
-          setSubmitting(false)
-        }
-      }}
+      onSubmit={(values, { setSubmitting }) => handleUpdateSettings(values, setSubmitting)}
     >
       {({ isSubmitting }) => (
         <>
@@ -59,6 +66,13 @@ export default function SettingForm() {
                 Lihat cara mendapatkan <a className="underline text-blue-500" href="https://ai.google.dev/gemini-api/docs/api-key" target="_blank">Gemini API Key</a>.
               </p>
             </div>
+            {setting?.modelVersion &&
+              <FormInput
+                name="modelVersion"
+                label="Model Version"
+                disabled
+              />
+            }
             <div className='flex justify-end'>
               <Button type="submit" color="dark" disabled={isSubmitting}>
                 <HiOutlineSave className="mr-2 h-5 w-5" />
