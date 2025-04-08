@@ -1,5 +1,5 @@
 import { Button } from "flowbite-react";
-import heroImage from "@/assets/images/hero.png";
+import heroImage from "@/assets/images/hero2.png";
 import { getUser } from "@/services/userService";
 import { useNavigate } from "react-router-dom";
 
@@ -18,7 +18,7 @@ export default function Home() {
           <Button onClick={() => navigate(user ? '/dashboard/generate' : '/login')} color="dark" size="lg" className="font-medium">Buat Soal Sekarang</Button>
         </div>
         <div className="basis-1/2 hidden lg:flex justify-center">
-          <img src={heroImage} alt="Hero Image" />
+          <img src={heroImage} alt="Hero Image" className="max-w-md" />
         </div>
       </div>
     </>

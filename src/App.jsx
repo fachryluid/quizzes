@@ -1,5 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import About from "./pages/About";
+import Contributor from "./pages/Contributor";
 import Dashboard from "./pages/dashboard/Dashboard";
 import GenerateQuiz from "./pages/dashboard/GenerateQuiz";
 import DashboardLayout from "./pages/dashboard/Layout";
@@ -18,6 +20,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/contributors" element={<Contributor />} />
+        <Route path="/about" element={<About />} />
         <Route path="/dashboard/*" element={<DashboardLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="generate" element={<GenerateQuiz />} />

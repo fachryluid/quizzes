@@ -2,7 +2,7 @@ import { getUser } from "@/services/userService";
 import { Button } from "flowbite-react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
@@ -74,14 +74,14 @@ export default function Navbar() {
             } absolute top-16 left-0 w-full h-[calc(100vh-4rem)] bg-white px-5 space-y-5 border-t border-b z-20 py-5 sm:py-0 sm:z-0 sm:border-0 sm:space-y-0 sm:px-0 sm:static sm:flex sm:space-x-10 sm:items-center sm:w-fit sm:h-auto`}
         >
           <li>
-            <a href="#" className="font-medium hover:text-yellow-400">
+            <Link to="/about" className="font-medium hover:text-yellow-400">
               Tentang
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="font-medium hover:text-yellow-400">
+            <Link to="/contributors" className="font-medium hover:text-yellow-400">
               Kontributor
-            </a>
+            </Link>
           </li>
           <li>
             {user ?
